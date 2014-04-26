@@ -1,6 +1,8 @@
 # mono-assembly-injector
 
+Inject assemblies into mono embedded processes like UnityEngine Games
 
-## Example Usage: 
 
-`mono-assembly-injector.exe -dll assembly.dll -target hearthstone.exe -namespace MyProgram -class Loader -method Load`
+## Usage: 
+
+`mono-assembly-injector.exe -dll my.dll -target hearthstone.exe -namespace MyProg -class Loader -method Load`
