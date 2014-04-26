@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Xantos</RootNamespace>
+    <ProjectName>BlackBone</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(ProjectDir)\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(SolutionDir)blackbone\contrib;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(SolutionDir)contrib;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(ProjectDir)\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(SolutionDir)blackbone\contrib;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(SolutionDir)contrib;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;BLACBONE_NO_TRACE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;BLACBONE_NO_TRACE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\contrib\AsmJit\AssemblerX86X64.cpp" />
+    <ClCompile Include="..\..\contrib\AsmJit\CodeGenerator.cpp" />
+    <ClCompile Include="..\..\contrib\AsmJit\Compiler.cpp" />
+    <ClCompile Include="..\..\contrib\AsmJit\CompilerX86X64.cpp" />
+    <ClCompile Include="..\..\contrib\AsmJit\CpuInfo.cpp" />
+    <ClCompile Include="..\..\contrib\AsmJit\Defs.cpp" />
+    <ClCompile Include="..\..\contrib\AsmJit\DefsX86X64.cpp" />
+    <ClCompile Include="..\..\contrib\AsmJit\Logger.cpp" />
+    <ClCompile Include="..\..\contrib\AsmJit\MemoryManager.cpp" />
+    <ClCompile Include="..\..\contrib\AsmJit\MemoryMarker.cpp" />
+    <ClCompile Include="..\..\contrib\AsmJit\OperandX86X64.cpp" />
+    <ClCompile Include="..\..\contrib\AsmJit\Platform.cpp" />
+    <ClCompile Include="..\..\contrib\AsmJit\Util.cpp" />
+    <ClCompile Include="AsmHelper32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="AsmHelper64.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="AsmStack.hpp" />
+    <ClCompile Include="TraceHook.cpp" />
+    <ClCompile Include="LDasm.c" />
+    <ClCompile Include="LocalHookBase.cpp" />
+    <ClCompile Include="MExcept.cpp" />
+    <ClCompile Include="MMap.cpp" />
+    <ClCompile Include="FileProjection.cpp" />
+    <ClCompile Include="ImageNET.cpp" />
+    <ClCompile Include="MemBlock.cpp" />
+    <ClCompile Include="NameResolve.cpp" />
+    <ClCompile Include="NativeSubsystem.cpp" />
+    <ClCompile Include="DynImport.cpp" />
+    <ClCompile Include="Wow64Subsystem.cpp" />
+    <ClCompile Include="NtLoader.cpp" />
+    <ClCompile Include="NativeStructures.h" />
+    <ClCompile Include="PatternSearch.cpp" />
+    <ClCompile Include="PEParser.cpp" />
+    <ClCompile Include="Process.cpp" />
+    <ClCompile Include="ProcessCore.cpp" />
+    <ClCompile Include="ProcessMemory.cpp" />
+    <ClCompile Include="ProcessModules.cpp" />
+    <ClCompile Include="RemoteExec.cpp" />
+    <ClCompile Include="RemoteHook.cpp" />
+    <ClCompile Include="Thread.cpp" />
+    <ClCompile Include="Threads.cpp" />
+    <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="Wow64Local.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="x86Subsystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\contrib\AsmJit\ApiBegin.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\ApiEnd.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\AsmJit.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\Assembler.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\AssemblerX86X64.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\Build.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\CodeGenerator.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\Compiler.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\CompilerX86X64.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\Config.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\CpuInfo.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\Defs.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\DefsX86X64.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\Logger.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\MemoryManager.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\MemoryMarker.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\Operand.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\OperandX86X64.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\Platform.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\Util.h" />
+    <ClInclude Include="..\..\contrib\AsmJit\Util_p.h" />
+    <ClInclude Include="AsmHelper32.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="AsmHelper64.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="AsmHelperBase.h" />
+    <ClInclude Include="AsmVariant.hpp" />
+    <ClInclude Include="DynImport.h" />
+    <ClInclude Include="FunctionTypes.h" />
+    <ClInclude Include="HookHandlerCdecl.h" />
+    <ClInclude Include="HookHandlerFastcall.h" />
+    <ClInclude Include="HookHandlers.h" />
+    <ClInclude Include="HookHandlerStdcall.h" />
+    <ClInclude Include="HookHandlerThiscall.h" />
+    <ClInclude Include="TraceHook.h" />
+    <ClInclude Include="LocalHook.hpp" />
+    <ClInclude Include="LocalHookBase.h" />
+    <ClInclude Include="Trace.hpp" />
+    <ClInclude Include="VTableHook.hpp" />
+    <ClInclude Include="Wow64Subsystem.h" />
+    <ClInclude Include="Types.h" />
+    <ClInclude Include="LDasm.h" />
+    <ClInclude Include="MExcept.h" />
+    <ClInclude Include="MMap.h" />
+    <ClInclude Include="FileProjection.h" />
+    <ClInclude Include="ImageNET.h" />
+    <ClInclude Include="NativeSubsystem.h" />
+    <ClInclude Include="Win7Specific.h" />
+    <ClInclude Include="Win8Specific.h" />
+    <ClInclude Include="NtLoader.h" />
+    <ClInclude Include="RemoteFunction.hpp" />
+    <ClInclude Include="AsmHelper.h" />
+    <ClInclude Include="Macro.h" />
+    <ClInclude Include="MemBlock.h" />
+    <ClInclude Include="NameResolve.h" />
+    <ClInclude Include="PatternSearch.h" />
+    <ClInclude Include="PEParser.h" />
+    <ClInclude Include="Process.h" />
+    <ClInclude Include="ProcessCore.h" />
+    <ClInclude Include="ProcessMemory.h" />
+    <ClInclude Include="ProcessModules.h" />
+    <ClInclude Include="RemoteContext.hpp" />
+    <ClInclude Include="RemoteExec.h" />
+    <ClInclude Include="RemoteHook.h" />
+    <ClInclude Include="Thread.h" />
+    <ClInclude Include="Threads.h" />
+    <ClInclude Include="Utils.h" />
+    <ClInclude Include="Winheaders.h" />
+    <ClInclude Include="Wow64Local.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="x86Subsystem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\contrib\AsmJit\Regenerate.py" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
