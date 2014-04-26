@@ -2,7 +2,20 @@
 
 Inject assemblies into mono embedded processes like UnityEngine Games
 
+## Features
 
-## Usage: 
+- Does not lock the injected assembly so you can recompile and inject again without closing the target program
+- Simple
 
-`mono-assembly-injector.exe -dll my.dll -target hearthstone.exe -namespace MyProg -class Loader -method Load`
+## Usage
+
+`injector.exe -dll my.dll -target hearthstone.exe -namespace MyProg -class Loader -method Load`
+
+The unload method should just destroy your callbacks, static objects etc.
+
+`injector.exe -dll my.dll -target hearthstone.exe -namespace MyProg -class Loader -method Unload`
+
+Recompile and go again!
+
+## Licenses
+mono-assembly-injector is licensed under the MIT License. Dependencies are under their respective licenses.
