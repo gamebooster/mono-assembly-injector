@@ -60,16 +60,16 @@ int ExecuteGetDomain(blackbone::Process& process) {
   return domain_result;
 }
 int ExecuteImageOpenFromDataFull(blackbone::Process& process, std::vector<char>& data) {
-  typedef int(__cdecl* mono_image_open_from_data_full) (char *data, unsigned int data_len, int need_copy, int *status, int refonly, const char* name);
+  typedef int(__cdecl* mono_image_open_from_data_full) (char *data, unsigned int data_len, int need_copy, int *status, int refonly);
 
-  auto mono_image_open_from_data_full_address = process.modules().GetExport(process.modules().GetModule(L"mono.dll"), "mono_image_open_from_data_full");
+  auto mono_image_open_from_data_full_address = process.modules().GetExport(process.modules().GetModule(L"mono.dll"), "mono_image_open_from_data");
   if (mono_image_open_from_data_full_address.procAddress == 0) {
     std::wcout << L"Could not find mono_image_open_from_data_full!";
     return 0;
   }
 
   int status;
-  blackbone::RemoteFunction<mono_image_open_from_data_full> mono_image_open_from_data_full_function(process, (mono_image_open_from_data_full)mono_image_open_from_data_full_address.procAddress, data.data(), data.size(), 1, &status, 0, "test.dll");
+  blackbone::RemoteFunction<mono_image_open_from_data_full> mono_image_open_from_data_full_function(process, (mono_image_open_from_data_full)mono_image_open_from_data_full_address.procAddress, data.data(), data.size(), 1, &status, 0);
 
   int image_data_get_result;
   mono_image_open_from_data_full_function.setArg(0, blackbone::AsmVariant(data.data(), data.size()));
@@ -78,7 +78,7 @@ int ExecuteImageOpenFromDataFull(blackbone::Process& process, std::vector<char>&
   return image_data_get_result;
 }
 int ExecuteAssemblyLoadFromFull(blackbone::Process& process, int image) {
-  typedef int(__cdecl* mono_assembly_load_from_full) (int image, const char *fname, int *status, bool refonly);
+  typedef int(__cdecl* mono_assembly_load_from_full) (int image, int *fname, int *status, bool refonly);
 
   auto mono_assembly_load_from_full_address = process.modules().GetExport(process.modules().GetModule(L"mono.dll"), "mono_assembly_load_from_full");
   if (mono_assembly_load_from_full_address.procAddress == 0) {
@@ -87,7 +87,7 @@ int ExecuteAssemblyLoadFromFull(blackbone::Process& process, int image) {
   }
 
   int status;
-  blackbone::RemoteFunction<mono_assembly_load_from_full> mono_assembly_load_from_full_function(process, (mono_assembly_load_from_full)mono_assembly_load_from_full_address.procAddress, image, "test.dll", &status, 0);
+  blackbone::RemoteFunction<mono_assembly_load_from_full> mono_assembly_load_from_full_function(process, (mono_assembly_load_from_full)mono_assembly_load_from_full_address.procAddress, image, nullptr, &status, 0);
 
   int assembly;
   mono_assembly_load_from_full_function.Call(assembly, process.threads().getMain());
