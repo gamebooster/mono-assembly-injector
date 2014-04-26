@@ -17,5 +17,7 @@ The unload method should just destroy your callbacks, static objects etc.
 
 Recompile and go again!
 
+__Important__: You need to specify AssemblyVersion like `[assembly: AssemblyVersion("1.0.*")]` so it changes for every build else mono will use an old assembly version from cache.  
+
 ## Licenses
 mono-assembly-injector is licensed under the MIT License. Dependencies are under their respective licenses.
