@@ -72,7 +72,7 @@ int ExecuteImageOpenFromDataFull(blackbone::Process& process, std::vector<char>&
   memblock.Write(0, data.size(), data.data());
 
   int status;
-  blackbone::RemoteFunction<mono_image_open_from_data_full> mono_image_open_from_data_full_function(process, (mono_image_open_from_data_full)mono_image_open_from_data_full_address.procAddress, memblock.ptr<int>(), data.size(), 0, &status, 0);
+  blackbone::RemoteFunction<mono_image_open_from_data_full> mono_image_open_from_data_full_function(process, (mono_image_open_from_data_full)mono_image_open_from_data_full_address.procAddress, memblock.ptr<int>(), data.size(), 1, &status, 0);
 
   int image_data_get_result;
   mono_image_open_from_data_full_function.Call(image_data_get_result, process.threads().getMain());
