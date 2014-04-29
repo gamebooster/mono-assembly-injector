@@ -60,7 +60,7 @@ int ExecuteGetDomain(blackbone::Process& process) {
   return domain_result;
 }
 int ExecuteImageOpenFromDataFull(blackbone::Process& process, std::vector<char>& data) {
-  typedef int(__cdecl* mono_image_open_from_data_full) (char *data, unsigned int data_len, int need_copy, int *status, int refonly);
+  typedef int(__cdecl* mono_image_open_from_data_full) (int data, unsigned int data_len, int need_copy, int *status, int refonly);
 
   auto mono_image_open_from_data_full_address = process.modules().GetExport(process.modules().GetModule(L"mono.dll"), "mono_image_open_from_data");
   if (mono_image_open_from_data_full_address.procAddress == 0) {
@@ -68,12 +68,16 @@ int ExecuteImageOpenFromDataFull(blackbone::Process& process, std::vector<char>&
     return 0;
   }
 
+  auto memblock = process.memory().Allocate(data.size(), PAGE_READWRITE);
+  memblock.Write(0, data.size(), data.data());
+
   int status;
-  blackbone::RemoteFunction<mono_image_open_from_data_full> mono_image_open_from_data_full_function(process, (mono_image_open_from_data_full)mono_image_open_from_data_full_address.procAddress, data.data(), data.size(), 1, &status, 0);
+  blackbone::RemoteFunction<mono_image_open_from_data_full> mono_image_open_from_data_full_function(process, (mono_image_open_from_data_full)mono_image_open_from_data_full_address.procAddress, memblock.ptr<int>(), data.size(), 0, &status, 0);
 
   int image_data_get_result;
-  mono_image_open_from_data_full_function.setArg(0, blackbone::AsmVariant(data.data(), data.size()));
   mono_image_open_from_data_full_function.Call(image_data_get_result, process.threads().getMain());
+
+  memblock.Free();
 
   return image_data_get_result;
 }
