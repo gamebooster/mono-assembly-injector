@@ -1,6 +1,5 @@
 #include "Tests.h"
-#include "../BlackBone/VTableHook.hpp"
-
+#include "../BlackBone/localHook/VTableHook.hpp"
 
 class TestClass
 {
@@ -95,6 +94,7 @@ int __stdcall hkTest( void*& _this, int& a1, int&, int& )
 
 void TestLocalHook()
 {
+#ifdef COMPILER_MSVC
     MyMook mh;
     TestClassChild ts;
     Process proc;
@@ -111,7 +111,7 @@ void TestLocalHook()
     det.Hook( &CloseHandle, &MyMook::hkCloseHandle, &mh, HookType::HWBP );
     det2.Hook( &TestFastcall, &hkTestFastcall, HookType::Inline);
     det3.Hook( ptr, &::hkTest, HookType::Int3 );
-    det4.Hook( (void**)&ts, 0, &MyMook::hkVFunc, &mh/*, true, 1*/ );
+    det4.Hook( (void**)&ts, 0, &MyMook::hkVFunc, &mh );
 
     int a = 10;
 
@@ -128,4 +128,5 @@ void TestLocalHook()
     std::cout << "Returned value = " <<  val << "\r\n";
 
     proc.Attach( GetCurrentProcessId() );
+#endif
 }
