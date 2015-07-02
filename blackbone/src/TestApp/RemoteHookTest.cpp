@@ -1,3 +1,4 @@
+#include "../BlackBone/Config.h"
 #include "Tests.h"
 
 /*
@@ -5,6 +6,7 @@
 */
 void TestRemoteHook()
 {
+#ifdef COMPILER_MSVC
     struct HookClass
     {
         void HookFn( RemoteContext& context )
@@ -62,7 +64,7 @@ void TestRemoteHook()
             std::wcout << L"Found. Hooking...\n";
 
             // Hook and wait some time.
-            if (hclass.procTaskMgr.hooks().Apply( RemoteHook::ht_hwbp, pHookFn.procAddress, &HookClass::HookFn, hclass ))
+            if (hclass.procTaskMgr.hooks().Apply( RemoteHook::hwbp, pHookFn.procAddress, &HookClass::HookFn, hclass ))
             {
                 std::wcout << L"Hooked successfully. Try to terminate TestApp.exe from taskmgr now.\n";
                 Sleep( 20000 );
@@ -75,4 +77,5 @@ void TestRemoteHook()
         std::wcout << L"Not found, aborting\n";
 
     std::wcout << std::endl;
+#endif
 }

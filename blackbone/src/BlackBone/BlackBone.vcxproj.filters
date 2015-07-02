@@ -25,17 +25,11 @@
     <Filter Include="ManualMap\Native">
       <UniqueIdentifier>{ed49eaa5-5d59-4422-9da7-4e68f2e82774}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Process\RPC">
-      <UniqueIdentifier>{f688ae04-991b-40b2-9243-89e38275be42}</UniqueIdentifier>
-    </Filter>
     <Filter Include="AsmJit">
       <UniqueIdentifier>{400c27bd-fb7a-4125-abf2-90a4bdb04f09}</UniqueIdentifier>
     </Filter>
     <Filter Include="AsmJit\Helpers">
       <UniqueIdentifier>{e856edb5-6e81-44c0-a687-1901b1cc2c3d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AsmJit\Core">
-      <UniqueIdentifier>{1d88c69c-31a8-4e0e-8750-6d40c63ff869}</UniqueIdentifier>
     </Filter>
     <Filter Include="Subystem">
       <UniqueIdentifier>{7eb59189-daeb-47d1-9fa8-c9e246b22039}</UniqueIdentifier>
@@ -43,347 +37,406 @@
     <Filter Include="LocalHook">
       <UniqueIdentifier>{d8e1ddde-63c1-40a4-b8c6-5285e4fad4ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DriverControl">
+      <UniqueIdentifier>{3ed75fd0-62a1-4a6a-a158-6749fb3f3d90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AsmJit\Core">
+      <UniqueIdentifier>{84644925-22dd-4022-be68-30ddf267b977}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Process\Remote">
+      <UniqueIdentifier>{f688ae04-991b-40b2-9243-89e38275be42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AsmHelper32.cpp">
-      <Filter>AsmJit\Helpers</Filter>
+    <ClCompile Include="Subsystem\NativeSubsystem.cpp">
+      <Filter>Subystem</Filter>
     </ClCompile>
-    <ClCompile Include="AsmHelper64.cpp">
-      <Filter>AsmJit\Helpers</Filter>
+    <ClCompile Include="Subsystem\Wow64Local.cpp">
+      <Filter>Subystem</Filter>
     </ClCompile>
-    <ClCompile Include="PEParser.cpp">
+    <ClCompile Include="Subsystem\Wow64Subsystem.cpp">
+      <Filter>Subystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Subsystem\x86Subsystem.cpp">
+      <Filter>Subystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\MemBlock.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\Process.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\ProcessCore.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\ProcessMemory.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\ProcessModules.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\Threads\Thread.cpp">
+      <Filter>Process\Threads</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\Threads\Threads.cpp">
+      <Filter>Process\Threads</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\RPC\RemoteExec.cpp">
+      <Filter>Process\Remote</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\RPC\RemoteHook.cpp">
+      <Filter>Process\Remote</Filter>
+    </ClCompile>
+    <ClCompile Include="PE\ImageNET.cpp">
       <Filter>PE</Filter>
     </ClCompile>
-    <ClCompile Include="NativeStructures.h">
-      <Filter>Include</Filter>
-    </ClCompile>
-    <ClCompile Include="ProcessCore.cpp">
-      <Filter>Process</Filter>
-    </ClCompile>
-    <ClCompile Include="ProcessMemory.cpp">
-      <Filter>Process</Filter>
-    </ClCompile>
-    <ClCompile Include="ProcessModules.cpp">
-      <Filter>Process</Filter>
-    </ClCompile>
-    <ClCompile Include="Utils.cpp">
-      <Filter>Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="PatternSearch.cpp">
+    <ClCompile Include="Patterns\PatternSearch.cpp">
       <Filter>Patterns</Filter>
     </ClCompile>
-    <ClCompile Include="RemoteExec.cpp">
-      <Filter>Process\RPC</Filter>
+    <ClCompile Include="Misc\DynImport.cpp">
+      <Filter>Misc</Filter>
     </ClCompile>
-    <ClCompile Include="Process.cpp">
-      <Filter>Process</Filter>
+    <ClCompile Include="Misc\NameResolve.cpp">
+      <Filter>Misc</Filter>
     </ClCompile>
-    <ClCompile Include="Thread.cpp">
-      <Filter>Process\Threads</Filter>
+    <ClCompile Include="Misc\Utils.cpp">
+      <Filter>Misc</Filter>
     </ClCompile>
-    <ClCompile Include="Threads.cpp">
-      <Filter>Process\Threads</Filter>
+    <ClCompile Include="ManualMap\MExcept.cpp">
+      <Filter>ManualMap</Filter>
     </ClCompile>
-    <ClCompile Include="RemoteHook.cpp">
-      <Filter>Process\RPC</Filter>
+    <ClCompile Include="ManualMap\MMap.cpp">
+      <Filter>ManualMap</Filter>
     </ClCompile>
-    <ClCompile Include="MemBlock.cpp">
-      <Filter>Process</Filter>
-    </ClCompile>
-    <ClCompile Include="NtLoader.cpp">
+    <ClCompile Include="ManualMap\Native\NtLoader.cpp">
       <Filter>ManualMap\Native</Filter>
     </ClCompile>
-    <ClCompile Include="FileProjection.cpp">
-      <Filter>PE</Filter>
-    </ClCompile>
-    <ClCompile Include="ImageNET.cpp">
-      <Filter>PE</Filter>
-    </ClCompile>
-    <ClCompile Include="MMap.cpp">
-      <Filter>ManualMap</Filter>
-    </ClCompile>
-    <ClCompile Include="MExcept.cpp">
-      <Filter>ManualMap</Filter>
-    </ClCompile>
-    <ClCompile Include="NativeSubsystem.cpp">
-      <Filter>Subystem</Filter>
-    </ClCompile>
-    <ClCompile Include="Wow64Local.cpp">
-      <Filter>Subystem</Filter>
-    </ClCompile>
-    <ClCompile Include="Wow64Subsystem.cpp">
-      <Filter>Subystem</Filter>
-    </ClCompile>
-    <ClCompile Include="NameResolve.cpp">
-      <Filter>Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="DynImport.cpp">
-      <Filter>Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="AsmStack.hpp">
-      <Filter>AsmJit\Helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="x86Subsystem.cpp">
-      <Filter>Subystem</Filter>
-    </ClCompile>
-    <ClCompile Include="LocalHookBase.cpp">
+    <ClCompile Include="LocalHook\LocalHookBase.cpp">
       <Filter>LocalHook</Filter>
     </ClCompile>
-    <ClCompile Include="LDasm.c">
-      <Filter>AsmJit\Helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="TraceHook.cpp">
+    <ClCompile Include="LocalHook\TraceHook.cpp">
       <Filter>LocalHook</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\AssemblerX86X64.cpp">
+    <ClCompile Include="DriverControl\DriverControl.cpp">
+      <Filter>DriverControl</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\RPC\RemoteMemory.cpp">
+      <Filter>Process\Remote</Filter>
+    </ClCompile>
+    <ClCompile Include="Asm\AsmHelper32.cpp">
+      <Filter>AsmJit\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Asm\AsmHelper64.cpp">
+      <Filter>AsmJit\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Asm\LDasm.c">
+      <Filter>AsmJit\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="PE\PEImage.cpp">
+      <Filter>PE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\contrib\AsmJit\x86\x86assembler.cpp">
       <Filter>AsmJit\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\CodeGenerator.cpp">
+    <ClCompile Include="..\..\contrib\AsmJit\x86\x86cpuinfo.cpp">
       <Filter>AsmJit\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\Compiler.cpp">
+    <ClCompile Include="..\..\contrib\AsmJit\x86\x86inst.cpp">
       <Filter>AsmJit\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\CompilerX86X64.cpp">
+    <ClCompile Include="..\..\contrib\AsmJit\x86\x86operand.cpp">
       <Filter>AsmJit\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\CpuInfo.cpp">
+    <ClCompile Include="..\..\contrib\AsmJit\x86\x86operand_regs.cpp">
       <Filter>AsmJit\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\Defs.cpp">
+    <ClCompile Include="..\..\contrib\AsmJit\base\assembler.cpp">
       <Filter>AsmJit\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\DefsX86X64.cpp">
+    <ClCompile Include="..\..\contrib\AsmJit\base\codegen.cpp">
       <Filter>AsmJit\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\Logger.cpp">
+    <ClCompile Include="..\..\contrib\AsmJit\base\constpool.cpp">
       <Filter>AsmJit\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\MemoryManager.cpp">
+    <ClCompile Include="..\..\contrib\AsmJit\base\containers.cpp">
       <Filter>AsmJit\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\MemoryMarker.cpp">
+    <ClCompile Include="..\..\contrib\AsmJit\base\cpuinfo.cpp">
       <Filter>AsmJit\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\OperandX86X64.cpp">
+    <ClCompile Include="..\..\contrib\AsmJit\base\cputicks.cpp">
       <Filter>AsmJit\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\Platform.cpp">
+    <ClCompile Include="..\..\contrib\AsmJit\base\error.cpp">
       <Filter>AsmJit\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\contrib\AsmJit\Util.cpp">
+    <ClCompile Include="..\..\contrib\AsmJit\base\globals.cpp">
       <Filter>AsmJit\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\contrib\AsmJit\base\operand.cpp">
+      <Filter>AsmJit\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\contrib\AsmJit\base\runtime.cpp">
+      <Filter>AsmJit\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\contrib\AsmJit\base\string.cpp">
+      <Filter>AsmJit\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\contrib\AsmJit\base\vmem.cpp">
+      <Filter>AsmJit\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\contrib\AsmJit\base\zone.cpp">
+      <Filter>AsmJit\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\RPC\RemoteLocalHook.cpp">
+      <Filter>Process\Remote</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AsmHelper32.h">
-      <Filter>AsmJit\Helpers</Filter>
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Subsystem\NativeSubsystem.h">
+      <Filter>Subystem</Filter>
     </ClInclude>
-    <ClInclude Include="AsmHelper64.h">
-      <Filter>AsmJit\Helpers</Filter>
+    <ClInclude Include="Subsystem\Wow64Local.h">
+      <Filter>Subystem</Filter>
     </ClInclude>
-    <ClInclude Include="AsmHelperBase.h">
-      <Filter>AsmJit\Helpers</Filter>
+    <ClInclude Include="Subsystem\Wow64Subsystem.h">
+      <Filter>Subystem</Filter>
     </ClInclude>
-    <ClInclude Include="Macro.h">
-      <Filter>Include</Filter>
+    <ClInclude Include="Subsystem\x86Subsystem.h">
+      <Filter>Subystem</Filter>
     </ClInclude>
-    <ClInclude Include="Winheaders.h">
-      <Filter>Include</Filter>
+    <ClInclude Include="Process\MemBlock.h">
+      <Filter>Process</Filter>
     </ClInclude>
-    <ClInclude Include="PEParser.h">
+    <ClInclude Include="Process\Process.h">
+      <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\ProcessCore.h">
+      <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\ProcessMemory.h">
+      <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\ProcessModules.h">
+      <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\Threads\Thread.h">
+      <Filter>Process\Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\Threads\Threads.h">
+      <Filter>Process\Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\RPC\RemoteContext.hpp">
+      <Filter>Process\Remote</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\RPC\RemoteExec.h">
+      <Filter>Process\Remote</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\RPC\RemoteFunction.hpp">
+      <Filter>Process\Remote</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\RPC\RemoteHook.h">
+      <Filter>Process\Remote</Filter>
+    </ClInclude>
+    <ClInclude Include="PE\ImageNET.h">
       <Filter>PE</Filter>
     </ClInclude>
-    <ClInclude Include="ProcessCore.h">
-      <Filter>Process</Filter>
-    </ClInclude>
-    <ClInclude Include="ProcessMemory.h">
-      <Filter>Process</Filter>
-    </ClInclude>
-    <ClInclude Include="ProcessModules.h">
-      <Filter>Process</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils.h">
-      <Filter>Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="Process.h">
-      <Filter>Process</Filter>
-    </ClInclude>
-    <ClInclude Include="PatternSearch.h">
+    <ClInclude Include="Patterns\PatternSearch.h">
       <Filter>Patterns</Filter>
     </ClInclude>
-    <ClInclude Include="Thread.h">
-      <Filter>Process\Threads</Filter>
+    <ClInclude Include="Misc\DynImport.h">
+      <Filter>Misc</Filter>
     </ClInclude>
-    <ClInclude Include="Threads.h">
-      <Filter>Process\Threads</Filter>
+    <ClInclude Include="Misc\NameResolve.h">
+      <Filter>Misc</Filter>
     </ClInclude>
-    <ClInclude Include="RemoteHook.h">
-      <Filter>Process\RPC</Filter>
+    <ClInclude Include="Misc\Trace.hpp">
+      <Filter>Misc</Filter>
     </ClInclude>
-    <ClInclude Include="MemBlock.h">
-      <Filter>Process</Filter>
+    <ClInclude Include="Misc\Utils.h">
+      <Filter>Misc</Filter>
     </ClInclude>
-    <ClInclude Include="AsmHelper.h">
-      <Filter>AsmJit\Helpers</Filter>
+    <ClInclude Include="ManualMap\MExcept.h">
+      <Filter>ManualMap</Filter>
     </ClInclude>
-    <ClInclude Include="RemoteFunction.hpp">
-      <Filter>Process\RPC</Filter>
+    <ClInclude Include="ManualMap\MMap.h">
+      <Filter>ManualMap</Filter>
     </ClInclude>
-    <ClInclude Include="Win7Specific.h">
-      <Filter>Include</Filter>
-    </ClInclude>
-    <ClInclude Include="Win8Specific.h">
-      <Filter>Include</Filter>
-    </ClInclude>
-    <ClInclude Include="NtLoader.h">
+    <ClInclude Include="ManualMap\Native\NtLoader.h">
       <Filter>ManualMap\Native</Filter>
     </ClInclude>
-    <ClInclude Include="FileProjection.h">
-      <Filter>PE</Filter>
+    <ClInclude Include="LocalHook\HookHandlerCdecl.h">
+      <Filter>LocalHook</Filter>
     </ClInclude>
-    <ClInclude Include="ImageNET.h">
-      <Filter>PE</Filter>
+    <ClInclude Include="LocalHook\HookHandlerFastcall.h">
+      <Filter>LocalHook</Filter>
     </ClInclude>
-    <ClInclude Include="MMap.h">
-      <Filter>ManualMap</Filter>
+    <ClInclude Include="LocalHook\HookHandlers.h">
+      <Filter>LocalHook</Filter>
     </ClInclude>
-    <ClInclude Include="MExcept.h">
-      <Filter>ManualMap</Filter>
+    <ClInclude Include="LocalHook\HookHandlerStdcall.h">
+      <Filter>LocalHook</Filter>
     </ClInclude>
-    <ClInclude Include="LDasm.h">
-      <Filter>AsmJit\Helpers</Filter>
+    <ClInclude Include="LocalHook\HookHandlerThiscall.h">
+      <Filter>LocalHook</Filter>
     </ClInclude>
-    <ClInclude Include="NativeSubsystem.h">
-      <Filter>Subystem</Filter>
+    <ClInclude Include="LocalHook\LocalHook.hpp">
+      <Filter>LocalHook</Filter>
     </ClInclude>
-    <ClInclude Include="Wow64Local.h">
-      <Filter>Subystem</Filter>
+    <ClInclude Include="LocalHook\LocalHookBase.h">
+      <Filter>LocalHook</Filter>
     </ClInclude>
-    <ClInclude Include="Types.h">
+    <ClInclude Include="LocalHook\TraceHook.h">
+      <Filter>LocalHook</Filter>
+    </ClInclude>
+    <ClInclude Include="LocalHook\VTableHook.hpp">
+      <Filter>LocalHook</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\FunctionTypes.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="Wow64Subsystem.h">
-      <Filter>Subystem</Filter>
-    </ClInclude>
-    <ClInclude Include="NameResolve.h">
-      <Filter>Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="DynImport.h">
-      <Filter>Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="RemoteContext.hpp">
-      <Filter>Process\RPC</Filter>
-    </ClInclude>
-    <ClInclude Include="RemoteExec.h">
-      <Filter>Process\RPC</Filter>
-    </ClInclude>
-    <ClInclude Include="AsmVariant.hpp">
-      <Filter>AsmJit\Helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="x86Subsystem.h">
-      <Filter>Subystem</Filter>
-    </ClInclude>
-    <ClInclude Include="FunctionTypes.h">
+    <ClInclude Include="Include\Macro.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="HookHandlers.h">
-      <Filter>LocalHook</Filter>
+    <ClInclude Include="Include\NativeStructures.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="HookHandlerStdcall.h">
-      <Filter>LocalHook</Filter>
+    <ClInclude Include="Include\Types.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="HookHandlerThiscall.h">
-      <Filter>LocalHook</Filter>
+    <ClInclude Include="Include\Win7Specific.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="LocalHook.hpp">
-      <Filter>LocalHook</Filter>
+    <ClInclude Include="Include\Win8Specific.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="LocalHookBase.h">
-      <Filter>LocalHook</Filter>
+    <ClInclude Include="Include\Winheaders.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="HookHandlerCdecl.h">
-      <Filter>LocalHook</Filter>
+    <ClInclude Include="DriverControl\DriverControl.h">
+      <Filter>DriverControl</Filter>
     </ClInclude>
-    <ClInclude Include="HookHandlerFastcall.h">
-      <Filter>LocalHook</Filter>
+    <ClInclude Include="Process\RPC\RemoteMemory.h">
+      <Filter>Process\Remote</Filter>
     </ClInclude>
-    <ClInclude Include="Trace.hpp">
+    <ClInclude Include="Asm\AsmHelper64.h">
+      <Filter>AsmJit\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Asm\AsmHelper.h">
+      <Filter>AsmJit\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Asm\AsmHelper32.h">
+      <Filter>AsmJit\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Asm\AsmHelperBase.h">
+      <Filter>AsmJit\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Asm\AsmVariant.hpp">
+      <Filter>AsmJit\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Asm\AsmStack.hpp">
+      <Filter>AsmJit\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Asm\LDasm.h">
+      <Filter>AsmJit\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="PE\PEImage.h">
+      <Filter>PE</Filter>
+    </ClInclude>
+    <ClInclude Include="Misc\Thunk.hpp">
       <Filter>Misc</Filter>
     </ClInclude>
-    <ClInclude Include="TraceHook.h">
-      <Filter>LocalHook</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\ApiBegin.h">
+    <ClInclude Include="..\..\contrib\AsmJit\x86\x86assembler.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\ApiEnd.h">
+    <ClInclude Include="..\..\contrib\AsmJit\x86\x86cpuinfo.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\AsmJit.h">
+    <ClInclude Include="..\..\contrib\AsmJit\x86\x86inst.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\Assembler.h">
+    <ClInclude Include="..\..\contrib\AsmJit\x86\x86operand.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\AssemblerX86X64.h">
+    <ClInclude Include="..\..\contrib\AsmJit\apibegin.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\Build.h">
+    <ClInclude Include="..\..\contrib\AsmJit\apiend.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\CodeGenerator.h">
+    <ClInclude Include="..\..\contrib\AsmJit\asmjit.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\Compiler.h">
+    <ClInclude Include="..\..\contrib\AsmJit\base.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\CompilerX86X64.h">
+    <ClInclude Include="..\..\contrib\AsmJit\build.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\Config.h">
+    <ClInclude Include="..\..\contrib\AsmJit\config.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\CpuInfo.h">
+    <ClInclude Include="..\..\contrib\AsmJit\host.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\Defs.h">
+    <ClInclude Include="..\..\contrib\AsmJit\x86.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\DefsX86X64.h">
+    <ClInclude Include="..\..\contrib\AsmJit\base\assembler.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\Logger.h">
+    <ClInclude Include="..\..\contrib\AsmJit\base\codegen.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\MemoryManager.h">
+    <ClInclude Include="..\..\contrib\AsmJit\base\constpool.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\MemoryMarker.h">
+    <ClInclude Include="..\..\contrib\AsmJit\base\containers.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\Operand.h">
+    <ClInclude Include="..\..\contrib\AsmJit\base\cpuinfo.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\OperandX86X64.h">
+    <ClInclude Include="..\..\contrib\AsmJit\base\cputicks.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\Platform.h">
+    <ClInclude Include="..\..\contrib\AsmJit\base\error.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\Util.h">
+    <ClInclude Include="..\..\contrib\AsmJit\base\globals.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\contrib\AsmJit\Util_p.h">
+    <ClInclude Include="..\..\contrib\AsmJit\base\lock.h">
       <Filter>AsmJit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="VTableHook.hpp">
-      <Filter>LocalHook</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\contrib\AsmJit\Regenerate.py">
+    <ClInclude Include="..\..\contrib\AsmJit\base\operand.h">
       <Filter>AsmJit\Core</Filter>
-    </None>
+    </ClInclude>
+    <ClInclude Include="..\..\contrib\AsmJit\base\runtime.h">
+      <Filter>AsmJit\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\contrib\AsmJit\base\string.h">
+      <Filter>AsmJit\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\contrib\AsmJit\base\vectypes.h">
+      <Filter>AsmJit\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\contrib\AsmJit\base\vmem.h">
+      <Filter>AsmJit\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\contrib\AsmJit\base\zone.h">
+      <Filter>AsmJit\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\RPC\RemoteLocalHook.h">
+      <Filter>Process\Remote</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\WinXPSpecific.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ApiSet.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

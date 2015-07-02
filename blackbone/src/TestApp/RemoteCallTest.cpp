@@ -1,10 +1,15 @@
-#include "Tests.h"
+#include "../BlackBone/Config.h"
 
+#ifdef COMPILER_MSVC
+#include "Tests.h"
+#include "../BlackBone/Process/RPC/RemoteFunction.hpp"
+#endif
 /*
     Get explorer.exe path
 */
 void TestRemoteCall()
 {
+#ifdef COMPILER_MSVC
     std::wcout << L"\r\nRemote function call test\n";
     std::wcout << L"Searching for explorer.exe... ";
 
@@ -40,9 +45,16 @@ void TestRemoteCall()
             std::wcout << L"Found. Executing...\n";
             uint8_t buf[1024] = { 0 };
 
-            RemoteFunction<fnNtQueryVirtualMemory> pFN( explorer, (fnNtQueryVirtualMemory)pRemote.procAddress,
-                                                        INVALID_HANDLE_VALUE, (LPVOID)hMainMod->baseAddress,
-                                                        MemorySectionName, buf, sizeof(buf), nullptr );
+            RemoteFunction<fnNtQueryVirtualMemory> pFN(
+                explorer,
+                reinterpret_cast<fnNtQueryVirtualMemory>(pRemote.procAddress),
+                INVALID_HANDLE_VALUE,
+                reinterpret_cast<LPVOID>(hMainMod->baseAddress),
+                MemorySectionName,
+                reinterpret_cast<LPVOID>(buf),
+                static_cast<SIZE_T>(sizeof( buf )),
+                reinterpret_cast<PSIZE_T>(0)
+                );
 
             decltype(pFN)::ReturnType result;
 
@@ -60,4 +72,5 @@ void TestRemoteCall()
         std::wcout << L"Not found, aborting\n";
 
     std::wcout << std::endl;
+#endif // COMPILER_MSVC
 }
