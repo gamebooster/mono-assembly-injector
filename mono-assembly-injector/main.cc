@@ -2,9 +2,9 @@
 #include <algorithm>
 #include <iostream>
 #include <fstream>
-#include "../blackbone/src/BlackBone/Process.h"
-#include "../blackbone/src/BlackBone/RemoteFunction.hpp"
-#include "../blackbone/src/BlackBone/Utils.h"
+#include "../blackbone/src/BlackBone/Process/Process.h"
+#include "../blackbone/src/BlackBone/Process/RPC/RemoteFunction.hpp"
+#include "../blackbone/src/BlackBone/Misc/Utils.h"
 
 wchar_t* GetCmdOption(wchar_t ** begin, wchar_t ** end, const std::wstring & option) {
   wchar_t ** itr = find(begin, end, option);
