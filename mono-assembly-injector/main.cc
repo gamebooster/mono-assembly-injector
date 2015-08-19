@@ -229,8 +229,8 @@ int wmain(int argc, wchar_t * argv[]) {
     return 1;
   }
 
-  if (!CmdOptionExists(argv, argv + argc, L"-target")) {
-    std::wcerr << "You need to specify `-target`!";
+  if (!CmdOptionExists(argv, argv + argc, L"-target") && !CmdOptionExists(argv, argv + argc, L"-pid")) {
+    std::wcerr << "You need to specify `-target` or `-pid`!";
     return 1;
   }
 
@@ -246,10 +246,8 @@ int wmain(int argc, wchar_t * argv[]) {
   }
 
   wchar_t * target = GetCmdOption(argv, argv + argc, L"-target");
-  if (!target) {
-    std::wcerr << "You need to specify `-target`!";
-    return 1;
-  }
+
+  wchar_t * command_pid = GetCmdOption(argv, argv + argc, L"-pid");
 
   wchar_t * name_space = GetCmdOption(argv, argv + argc, L"-namespace");
   if (!name_space) {
@@ -269,41 +267,46 @@ int wmain(int argc, wchar_t * argv[]) {
     return 1;
   }
 
-  if (target) {
-    blackbone::Process target_process;
-    std::vector<DWORD> found;
-    blackbone::Process::EnumByName(target, found);
+  if (target || command_pid) {
+	  blackbone::Process target_process;
+	  std::vector<DWORD> found;
+	  if (target) blackbone::Process::EnumByName(target, found);
+	  int pid = 0;
+	  if (command_pid) pid = wcstol(command_pid, nullptr, 10);
 
-    std::wcout << L"Searching for " << target << " ... " << std::endl;
+	  std::wcout << L"Searching for " << (target ? target : command_pid) << " ... " << std::endl;
 
-    if (found.size() > 0) {
-      if (target_process.Attach(found.front()) == STATUS_SUCCESS) {
+	  if (pid == 0 && found.size() > 0) {
+		  pid = found.front();
+	  }
 
-        auto barrier = target_process.core().native()->GetWow64Barrier().type;
+	  if (pid == 0) {
+		  std::wcout << L"Could not find " << (target ? target : command_pid) << "!" << std::endl;
+		  return 1;
+	  }
 
-        if (barrier != blackbone::wow_32_32 && barrier != blackbone::wow_64_64)
-        {
-          std::wcout << L"Can't execute call through WOW64 barrier, aborting" << std::endl;
-          return 1;
-        }
 
-        std::wcout << L"Found. Executing..." << std::endl;
+	  if (target_process.Attach(pid) == STATUS_SUCCESS) {
 
-        return UseAssembly(target_process,
-                           dll,
-                           name_space,
-                           classname,
-                           methodname);
-      }
-      else {
-        std::wcout << L"Could not attach to " << target << "!" << std::endl;
-        return 1;
-      }
-    }
-    else {
-      std::wcout << L"Could not found " << target << "!" << std::endl;
-      return 1;
-    }
+		  auto barrier = target_process.core().native()->GetWow64Barrier().type;
+
+		  if (barrier != blackbone::wow_32_32 && barrier != blackbone::wow_64_64)
+		  {
+			  std::wcout << L"Can't execute call through WOW64 barrier, aborting" << std::endl;
+			  return 1;
+		  }
+
+		  std::wcout << L"Found. Executing..." << std::endl;
+
+		  return UseAssembly(target_process,
+			  dll,
+			  name_space,
+			  classname,
+			  methodname);
+	  }
+
+		  std::wcout << L"Could not attach to " << target << "!" << std::endl;
+		  return 1;
   }
 
   return 0;
